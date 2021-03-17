@@ -4,8 +4,8 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify)
 Vue.config.productionTip = false
-
+const vuetifyOptions = { }
 new Vue({
-  Vuetify,
+  vuetify: new Vuetify(vuetifyOptions),
   render: h => h(App)
 }).$mount('#app')

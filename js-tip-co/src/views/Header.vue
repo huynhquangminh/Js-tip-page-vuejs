@@ -10,21 +10,20 @@
                 />
             </div>
             <div class="header_contentAction">
-                <v-btn  class="header_contentAction_btn">
+                <v-btn class="header_contentAction_btn">
                     <span>Submit your tip</span>
                 </v-btn>
-                <v-menu offset-y>
+                <v-menu offset-y :left="true" nudge-right="5" nudge-top="-10" :open-on-hover="true" :close-on-content-click="false">
                     <template v-slot:activator="{ on, attrs }">
-                        <span v-bind="attrs" v-on="on">xxx</span>
+                        <span v-bind="attrs" v-on="on">{{textLanguage}}</span>
                     </template>
                     <v-list>
                         <v-list-item v-for="(item, index) in listLanguage" :key="index">
-                            <v-list-item-title>{{ item }}</v-list-item-title>
+                            <v-list-item-title v-ripple @click="textLanguage = item">{{ item }}</v-list-item-title>
                         </v-list-item>
                     </v-list>
                 </v-menu>
             </div>
-           
         </div>
     </header>
 </template>
@@ -34,13 +33,13 @@ export default {
     data: function () {
         return {
             listLanguage: [],
-            textLanguage: ''
-        }
+            textLanguage: '',
+        };
     },
     mounted() {
-        this.listLanguage = ['English', '中国大陆', 'Español', 'Español']
-        this.textLanguage = 'English'
-    }
+        this.listLanguage = ['English', '中国大陆', 'Español', '台灣'];
+        this.textLanguage = 'English';
+    },
 };
 </script>
 <style lang="scss">
@@ -61,15 +60,14 @@ export default {
         &Action {
             &_btn {
                 margin-left: 10px;
-                margin-right: 20px;
+                margin-right: 40px;
             }
             .v-btn__content {
                 text-transform: none;
                 font-size: 14px;
-                font-weight: 500;
+                font-weight: bold;
                 line-height: 40px;
                 color: #242424;
-                text-decoration: none;
             }
         }
     }
