@@ -1,15 +1,23 @@
 <template>
   <div data-app id="app">
+    <Header />
+    <Nav />
     <Home />
+    <Footer />
   </div>
 </template>
 
 <script>
+import Nav from  './views/Nav.vue'
+import Header from './views/Header.vue'
+import Footer from './views/Footer.vue'
 import Home from './views/Home.vue'
-
 export default {
   name: 'App',
   components: {
+    Nav,
+    Header, 
+    Footer,
     Home
   }
 }
