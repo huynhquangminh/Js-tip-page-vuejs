@@ -1,25 +1,32 @@
 <template>
     <div class="home">
-        <div class="home_tips">
-            <div class="home_tips__title">Latest Tips</div>
-            <div class="home_tips__list">
-                <div class="home_tips__listItem" v-for="(value, index) in 6" :key="index">
-                    <ItemTip></ItemTip>
+        <div class="home_content">
+            <div class="home_tips">
+                <div class="home_tips__title">Latest Tips</div>
+                <div class="home_tips__list">
+                    <div class="home_tips__listItem" v-for="(value, index) in 6" :key="index">
+                        <ItemTip></ItemTip>
+                    </div>
                 </div>
+                <div class="home_tips__load-more">Load me more tips</div>
             </div>
-            <div class="home_tips__load-more">Load me more tips</div>
+            <div class="home_left">
+                <SidebarLeft></SidebarLeft>
+            </div>
         </div>
-        <div>
-          <span>Partners</span>
-        </div>
+        <SwiperVue />
     </div>
 </template>
 <script>
 import ItemTip from '../components/ItemTip.vue';
+import SidebarLeft from '../components/SidebarLeft.vue';
+import SwiperVue from '../components/SwiperApp.vue';
 export default {
     name: 'Home',
     components: {
         ItemTip,
+        SidebarLeft,
+        SwiperVue
     },
     data: function () {
         return {};
@@ -28,11 +35,13 @@ export default {
 </script>
 <style lang="scss">
 .home {
-    margin: auto;
     height: 1900px;
-    width: 65%;
-    display: flex;
     padding: 60px 0 0;
+    &_content {
+      display: flex;
+      margin: auto;
+      width: 65%;
+    }
     &_tips {
         width: 70%;
         &__title {
@@ -47,21 +56,25 @@ export default {
             }
         }
         &__load-more {
-          border-radius: 4px;
-          border: solid 2px #29293f;
-          background-color: transparent;
-          font-size: 14px;
-          font-weight: bold;
-          padding: 12px 20px;
-          text-align: center;
-          cursor: pointer;
-          width: 25%;
-          margin: 50px auto 0;
-          &:hover {
-            background-color: #29293f;
-            color: #f8f8f4;
-          }
+            border-radius: 4px;
+            border: solid 2px #29293f;
+            background-color: transparent;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 12px 20px;
+            text-align: center;
+            cursor: pointer;
+            width: 25%;
+            margin: 50px auto 0;
+            &:hover {
+                background-color: #29293f;
+                color: #f8f8f4;
+            }
         }
+    }
+    &_left {
+        width: 30%;
+        margin-top: 50px;
     }
 }
 </style>

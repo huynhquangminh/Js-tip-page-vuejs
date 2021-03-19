@@ -13,9 +13,9 @@
                 <v-btn class="header_contentAction_btn">
                     <span>Submit your tip</span>
                 </v-btn>
-                <v-menu offset-y :left="true" nudge-right="5" nudge-top="-10" :open-on-hover="true" :close-on-content-click="false">
+                <v-menu offset-y :left="true" nudge-right="5" nudge-top="-10">
                     <template v-slot:activator="{ on, attrs }">
-                        <span v-bind="attrs" v-on="on">{{textLanguage}}</span>
+                        <span v-bind="attrs" v-on="on" class="header_contentAction_language">{{textLanguage}}</span>
                     </template>
                     <v-list>
                         <v-list-item v-for="(item, index) in listLanguage" :key="index">
@@ -68,6 +68,16 @@ export default {
                 font-weight: bold;
                 line-height: 40px;
                 color: #242424;
+            }
+            &_language {
+                &::after {
+                    content: "";
+                    background: url(https://www.jstips.co/assets/images/arrow_down.svg) no-repeat;
+                    width: 12px;
+                    height: 7px;
+                    margin: 0 0 1px 10px;
+                    display: inline-block;
+                }
             }
         }
     }
