@@ -40,10 +40,10 @@ export default {
     &_content {
       display: flex;
       margin: auto;
-      width: 65%;
+      width: 75%;
     }
     &_tips {
-        width: 70%;
+        width: 80%;
         &__title {
             font: 400 28px/1.5 'Roboto Mono', monospace;
             margin-bottom: 15px;

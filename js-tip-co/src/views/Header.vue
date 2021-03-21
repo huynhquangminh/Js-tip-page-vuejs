@@ -3,7 +3,6 @@
         <div class="header_content">
             <div class="header_contentLogo">
                 <img
-                    class
                     src="https://www.jstips.co/assets/images/logo.svg"
                     width="80"
                     height="80"
@@ -46,11 +45,10 @@ export default {
 .header {
     width: 100%;
     background-color: #f9d732;
-    height: 100px;
     &_content {
         margin: auto;
-        width: 65%;
-        height: 100px;
+        width: 75%;
+        height: 120px;
         display: flex;
         align-items: center;
         justify-content: space-between;
