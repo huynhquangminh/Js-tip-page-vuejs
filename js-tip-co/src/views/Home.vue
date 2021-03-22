@@ -14,7 +14,9 @@
                 <SidebarLeft></SidebarLeft>
             </div>
         </div>
-        <SwiperVue />
+        <div class="home_swiper">
+            <SwiperVue />
+        </div>
     </div>
 </template>
 <script>
@@ -75,6 +77,13 @@ export default {
     &_left {
         width: 30%;
         margin-top: 50px;
+    }
+    &_swiper
+    {
+        width: 100%;
+        height: 755px;
+        margin-top: 100px;
+        display: flex;
     }
 }
 </style>

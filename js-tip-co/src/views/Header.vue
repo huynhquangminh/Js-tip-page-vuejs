@@ -53,11 +53,10 @@ export default {
         align-items: center;
         justify-content: space-between;
         // padding-right: 36px;
-        &Logo {
-        }
         &Action {
+            width: 300px;
+            align-items: center;
             &_btn {
-                margin-left: 10px;
                 margin-right: 40px;
             }
             .v-btn__content {
