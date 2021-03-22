@@ -1,12 +1,13 @@
 <template>
-    <div class="swiperVue">
+    <div class="swiperVue" :style="{background: listColors[indexColor].background}">
         <swiper
-            class="swiper swiperVue_block "
+            ref="mySwiper"
+            class="swiper swiperVue_block"
             :options="swiperOption"
             @slideChange="slideChange()"
         >
             <swiper-slide v-for="(item, index) in listCourse" :key="index">
-                <div class="swiperVue_titleBig">
+                <div class="swiperVue_titleBig" :style="{color: listColors[indexColor].colorTitle}">
                     <span>{{item}}</span>
                 </div>
                 <div class="swiperVue_titleSmall">{{item}}</div>
@@ -45,10 +46,33 @@ export default {
             },
         },
         listCourse: ['javascrip', 'vuejs', 'angular', 'reactjs', 'more'],
+        listColors: [
+            {
+                background: 'rgba(249, 215, 50, 0.7)',
+                colorTitle: 'rgba(249, 215, 50, 1)'
+            },
+            {
+                background: 'rgba(74, 213, 255, 0.7)',
+                colorTitle: 'rgba(74, 213, 255, 1)'
+            },
+            {
+                background: 'rgba(221, 0, 3, 0.7)',
+                colorTitle: 'rgba(221, 0, 3, 1)'
+            },
+            {
+                background: 'rgba(0, 255, 153, 0.7)',
+                colorTitle: 'rgba(0, 255, 153, 1)'
+            },
+            {
+                background: 'rgba(96, 125, 139, 0.7)',
+                colorTitle: 'rgba(96, 125, 139, 1)'
+            },
+        ],
+        indexColor: 0
     }),
     methods: {
-        slideChange(event) {
-            console.log('change slide', event)
+        slideChange() {
+            this.indexColor = this.$refs.mySwiper.$swiper.activeIndex
         }
     },
 };
@@ -58,7 +82,6 @@ export default {
     width: 100%;
     margin: auto;
     height: 100%;
-    background: rgba(221, 0, 49, 0.7);
     display: flex;
     .swiper-slide {
         display: flex;
@@ -83,7 +106,6 @@ export default {
         position: absolute;
         top: -140px;
         text-transform: capitalize;
-        color: rgba(221, 0, 49, 1);
     }
     &_content {
         width: 60%;
