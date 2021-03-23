@@ -1,11 +1,11 @@
 <template>
   <div class="nav">
     <nav class="nav_content">
-        <a class="nav_content__pagelink">Javascrip</a>
-        <a class="nav_content__pagelink">React</a>
-        <a class="nav_content__pagelink">Angular</a>
-        <a class="nav_content__pagelink">VueJs</a>
-        <a class="nav_content__pagelink">More</a>
+        <a class="nav_content__pagelink" href="/javascript">Javascrip</a>
+        <a class="nav_content__pagelink" href="/react">React</a>
+        <a class="nav_content__pagelink" href="/angular">Angular</a>
+        <a class="nav_content__pagelink" href="/vuejs">VueJs</a>
+        <a class="nav_content__pagelink" href="/more">More</a>
     </nav>
 </div>
 </template>
@@ -33,6 +33,7 @@ export default {
       color: #f8f8f4;
       text-decoration: none;
       font-weight: bold;
+      // cursor: point;
       &:hover {
         color: #f9d732;
       }

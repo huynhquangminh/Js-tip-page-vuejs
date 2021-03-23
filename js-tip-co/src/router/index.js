@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Javascript from '../views/Javascript.vue'
+import React from '../views/React.vue'
+import Angular from '../views/Angular.vue'
+import VueJs from '../views/VueJs.vue'
+import More from '../views/More.vue'
 Vue.use(VueRouter)
 const routes = [
     {
@@ -14,8 +19,29 @@ const routes = [
         component: Home,
     },
     {
-        path: '/javascrip',
-        redirect: 'home'
+        path: '/javascript',
+        name: 'javascript',
+        component: Javascript,
+    },
+    {
+        path: '/react',
+        name: 'react',
+        component: React,
+    },
+    {
+        path: '/angular',
+        name: 'angular',
+        component: Angular,
+    },
+    {
+        path: '/vuejs',
+        name: 'vuejs',
+        component: VueJs,
+    },
+    {
+        path: '/more',
+        name: 'more',
+        component: More,
     },
 ]
 
