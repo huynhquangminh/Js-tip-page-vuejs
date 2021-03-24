@@ -49,31 +49,31 @@ export default {
         listColors: [
             {
                 background: 'rgba(249, 215, 50, 0.7)',
-                colorTitle: 'rgba(249, 215, 50, 1)'
+                colorTitle: 'rgba(249, 215, 50, 1)',
             },
             {
                 background: 'rgba(74, 213, 255, 0.7)',
-                colorTitle: 'rgba(74, 213, 255, 1)'
+                colorTitle: 'rgba(74, 213, 255, 1)',
             },
             {
                 background: 'rgba(221, 0, 3, 0.7)',
-                colorTitle: 'rgba(221, 0, 3, 1)'
+                colorTitle: 'rgba(221, 0, 3, 1)',
             },
             {
                 background: 'rgba(66, 185, 131, 0.7)',
-                colorTitle: 'rgba(66, 185, 131, 1)'
+                colorTitle: 'rgba(66, 185, 131, 1)',
             },
             {
                 background: 'rgba(96, 125, 139, 0.7)',
-                colorTitle: 'rgba(96, 125, 139, 1)'
+                colorTitle: 'rgba(96, 125, 139, 1)',
             },
         ],
-        indexColor: 0
+        indexColor: 0,
     }),
     methods: {
         slideChange() {
-            this.indexColor = this.$refs.mySwiper.$swiper.activeIndex
-        }
+            this.indexColor = this.$refs.mySwiper.$swiper.activeIndex;
+        },
     },
 };
 </script>
@@ -121,6 +121,23 @@ export default {
                 padding: 15px;
                 text-transform: capitalize;
             }
+        }
+    }
+    .swiper-button-prev {
+        background: url('https://www.jstips.co/assets/images/arrow.svg')
+            no-repeat !important;
+        width: 40px;
+        transform: rotate(180deg);
+        &::after {
+            content: '';
+        }
+    }
+    .swiper-button-next {
+        background: url('https://www.jstips.co/assets/images/arrow.svg')
+            no-repeat !important;
+        width: 40px;
+        &::after {
+            content: '';
         }
     }
 }
