@@ -45,7 +45,8 @@ export default {
       width: 75%;
     }
     &_tips {
-        width: 80%;
+        width: 65%;
+        margin-right: 5px;
         &__title {
             font: 400 28px/1.5 'Roboto Mono', monospace;
             margin-bottom: 15px;
@@ -66,7 +67,7 @@ export default {
             padding: 12px 20px;
             text-align: center;
             cursor: pointer;
-            width: 25%;
+            width: 200px;
             margin: 50px auto 0;
             &:hover {
                 background-color: #29293f;

@@ -45,7 +45,7 @@ export default {
                 prevEl: '.swiper-button-prev',
             },
         },
-        listCourse: ['javascrip', 'vuejs', 'angular', 'reactjs', 'more'],
+        listCourse: ['javascrip', 'reactjs', 'angular', 'vuejs', 'more'],
         listColors: [
             {
                 background: 'rgba(249, 215, 50, 0.7)',
@@ -60,8 +60,8 @@ export default {
                 colorTitle: 'rgba(221, 0, 3, 1)'
             },
             {
-                background: 'rgba(0, 255, 153, 0.7)',
-                colorTitle: 'rgba(0, 255, 153, 1)'
+                background: 'rgba(66, 185, 131, 0.7)',
+                colorTitle: 'rgba(66, 185, 131, 1)'
             },
             {
                 background: 'rgba(96, 125, 139, 0.7)',

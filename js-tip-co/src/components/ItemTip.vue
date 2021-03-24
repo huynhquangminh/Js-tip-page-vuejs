@@ -15,7 +15,7 @@
                 </div>
             </v-card-text>
             <v-card-actions class="itemTip_action">
-                <a class="itemTip_action__link">Read More →</a>
+                <a class="itemTip_action__link" href="">Read More →</a>
             </v-card-actions>
         </v-card>
     </div>
@@ -53,6 +53,8 @@ export default {
         background: #fbfbfb;
         &__link {
             font-weight: bold;
+            text-decoration: none;
+            color: #242424;
         }
     }
     &:hover {

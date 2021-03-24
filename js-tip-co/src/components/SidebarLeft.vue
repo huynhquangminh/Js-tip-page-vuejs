@@ -33,6 +33,7 @@ export default {
 </script>
 <style lang="scss">
 .sidebarLeft {
+    width: 348px;
     &_partners {
         &__title {
             font: 350 20px/1.5 'Roboto Mono', monospace;

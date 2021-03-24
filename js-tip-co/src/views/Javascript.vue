@@ -42,10 +42,8 @@ export default {
 </script>
 <style lang="scss">
 .javascript {
-    // height: 1900px;
-    // padding: 60px 0 0;
     &_top {
-        padding: 60px 0 150px 0;
+        padding: 150px 0 50px 0;
         background-color: rgba(249, 215, 50);
         &__content {
             width: 75%;
@@ -79,7 +77,7 @@ export default {
         padding: 60px 0 0;
     }
     &_tips {
-        width: 80%;
+        width: 65%;
         &__title {
             font: 400 28px/1.5 'Roboto Mono', monospace;
             margin-bottom: 15px;
@@ -100,7 +98,7 @@ export default {
             padding: 12px 20px;
             text-align: center;
             cursor: pointer;
-            width: 25%;
+            width: 200px;
             margin: 50px auto 0;
             &:hover {
                 background-color: #29293f;
