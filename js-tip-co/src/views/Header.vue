@@ -2,11 +2,9 @@
     <header class="header">
         <div class="header_content">
             <div class="header_contentLogo">
-                <img
-                    src="https://www.jstips.co/assets/images/logo.svg"
-                    width="80"
-                    height="80"
-                />
+                <a href="/home">
+                    <img src="https://www.jstips.co/assets/images/logo.svg" width="80" height="80" />
+                </a>
             </div>
             <div class="header_contentAction">
                 <v-btn class="header_contentAction_btn">
@@ -14,7 +12,11 @@
                 </v-btn>
                 <v-menu offset-y :left="true" nudge-right="5" nudge-top="-10">
                     <template v-slot:activator="{ on, attrs }">
-                        <span v-bind="attrs" v-on="on" class="header_contentAction_language">{{textLanguage}}</span>
+                        <span
+                            v-bind="attrs"
+                            v-on="on"
+                            class="header_contentAction_language"
+                        >{{textLanguage}}</span>
                     </template>
                     <v-list>
                         <v-list-item v-for="(item, index) in listLanguage" :key="index">
@@ -68,8 +70,9 @@ export default {
             }
             &_language {
                 &::after {
-                    content: "";
-                    background: url(https://www.jstips.co/assets/images/arrow_down.svg) no-repeat;
+                    content: '';
+                    background: url(https://www.jstips.co/assets/images/arrow_down.svg)
+                        no-repeat;
                     width: 12px;
                     height: 7px;
                     margin: 0 0 1px 10px;

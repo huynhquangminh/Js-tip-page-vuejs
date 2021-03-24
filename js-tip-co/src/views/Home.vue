@@ -37,7 +37,7 @@ export default {
 </script>
 <style lang="scss">
 .home {
-    height: 1900px;
+    // height: 1900px;
     padding: 60px 0 0;
     &_content {
       display: flex;
