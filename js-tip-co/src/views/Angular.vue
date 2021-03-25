@@ -76,12 +76,14 @@ export default {
     }
     &_content {
         display: flex;
+        flex-wrap: wrap;
         margin: auto;
         width: 75%;
         padding: 60px 0 0;
     }
     &_tips {
         width: 65%;
+        min-width: 350px;
         &__title {
             font: 400 28px/1.5 'Roboto Mono', monospace;
             margin-bottom: 15px;

@@ -43,8 +43,10 @@ export default {
       display: flex;
       margin: auto;
       width: 75%;
+      flex-wrap: wrap;
     }
     &_tips {
+        min-width: 350px;
         width: 65%;
         margin-right: 5px;
         &__title {
