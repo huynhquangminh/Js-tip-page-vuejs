@@ -112,6 +112,10 @@ export default {
                 background-color: #29293f;
                 color: #f8f8f4;
             }
+            @media (max-width: 670px) {
+                overflow: auto;
+                width: 100%
+            }
         }
     }
     &_left {
