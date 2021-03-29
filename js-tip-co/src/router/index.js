@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Javascript from '../views/Javascript.vue'
+import JavascriptDetail from '../views/JavascriptDetail.vue'
 import React from '../views/React.vue'
 import Angular from '../views/Angular.vue'
 import VueJs from '../views/VueJs.vue'
@@ -19,9 +20,14 @@ const routes = [
         component: Home,
     },
     {
+        path: '/javascript/detail:id?',
+        name: 'javascriptDetail',
+        component: JavascriptDetail,
+    },
+    {
         path: '/javascript',
         name: 'javascript',
-        component: Javascript,
+        component: Javascript
     },
     {
         path: '/react',

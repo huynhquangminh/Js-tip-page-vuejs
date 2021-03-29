@@ -44,6 +44,9 @@ export default {
       margin: auto;
       width: 75%;
       flex-wrap: wrap;
+      @media (max-width: 670px) {
+            justify-content: center;
+        }
     }
     &_tips {
         min-width: 350px;
@@ -84,6 +87,9 @@ export default {
     &_left {
         width: 30%;
         margin-top: 50px;
+        @media (max-width: 670px) {
+            width: auto;
+        }
     }
     &_swiper
     {

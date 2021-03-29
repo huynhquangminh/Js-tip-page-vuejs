@@ -78,4 +78,23 @@ export default {
         }
     }
 }
+@media (max-width: 670px) {
+    .footer {
+        &_content {
+            display: block;
+            &_title {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            &_fllow {
+                display: flex;
+                justify-content: center;
+                &_block {
+                    margin-right: 50px;
+                }
+            }
+        }
+    }
+}
 </style>

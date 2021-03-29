@@ -106,6 +106,10 @@ export default {
         position: absolute;
         top: -140px;
         text-transform: capitalize;
+        @media (max-width: 670px) {
+            font-size: 100px;
+            top: -30px;
+        }
     }
     &_content {
         width: 60%;

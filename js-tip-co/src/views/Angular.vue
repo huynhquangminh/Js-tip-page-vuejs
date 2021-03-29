@@ -110,10 +110,6 @@ export default {
                 background-color: #29293f;
                 color: #f8f8f4;
             }
-            @media (max-width: 670px) {
-                overflow: auto;
-                width: 100%
-            }
         }
     }
     &_left {
@@ -125,6 +121,31 @@ export default {
         height: 755px;
         margin-top: 100px;
         display: flex;
+    }
+}
+@media (max-width: 670px) {
+    .angular {
+        &_top {
+            padding: 50px 0 50px 0;
+            &__content {
+                &Title {
+                    width: auto;
+                    font-size: 30px;
+                }
+            }
+        }
+        &_content {
+            justify-content: center;
+        }
+        &_tips {
+            &__load-more {
+                overflow: auto;
+                width: 100%
+            }
+        }
+        &_left {
+            width: auto;
+        }
     }
 }
 </style>
