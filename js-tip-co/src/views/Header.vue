@@ -1,36 +1,43 @@
 <template>
-    <header class="header">
-        <div class="header_content">
-            <div class="header_contentLogo">
-                <a href="/home">
-                    <img src="https://www.jstips.co/assets/images/logo.svg" width="80" height="80" />
-                </a>
+    <div>
+        <header class="header">
+            <div class="header_content">
+                <div class="header_contentLogo">
+                    <a href="/home">
+                        <img src="https://www.jstips.co/assets/images/logo.svg" width="80" height="80" />
+                    </a>
+                </div>
+                <div class="header_contentAction">
+                    <v-btn class="header_contentAction_btn">
+                        <span>Submit your tip</span>
+                    </v-btn>
+                    <v-menu offset-y :left="true" nudge-right="5" nudge-top="-10">
+                        <template v-slot:activator="{ on, attrs }">
+                            <span
+                                v-bind="attrs"
+                                v-on="on"
+                                class="header_contentAction_language"
+                            >{{textLanguage}}</span>
+                        </template>
+                        <v-list>
+                            <v-list-item v-for="(item, index) in listLanguage" :key="index">
+                                <v-list-item-title v-ripple @click="textLanguage = item">{{ item }}</v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
+                </div>
             </div>
-            <div class="header_contentAction">
-                <v-btn class="header_contentAction_btn">
-                    <span>Submit your tip</span>
-                </v-btn>
-                <v-menu offset-y :left="true" nudge-right="5" nudge-top="-10">
-                    <template v-slot:activator="{ on, attrs }">
-                        <span
-                            v-bind="attrs"
-                            v-on="on"
-                            class="header_contentAction_language"
-                        >{{textLanguage}}</span>
-                    </template>
-                    <v-list>
-                        <v-list-item v-for="(item, index) in listLanguage" :key="index">
-                            <v-list-item-title v-ripple @click="textLanguage = item">{{ item }}</v-list-item-title>
-                        </v-list-item>
-                    </v-list>
-                </v-menu>
-            </div>
-        </div>
-    </header>
+        </header>
+        <Nav />
+    </div>
 </template>
 <script>
+import Nav from  './Nav.vue'
 export default {
     name: 'Header',
+    components: {
+        Nav
+    },
     data: function () {
         return {
             listLanguage: [],

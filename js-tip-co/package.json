@@ -13,6 +13,7 @@
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^4.1.1",
     "vue-router": "^3.5.1",
+    "vue-sticky-directive": "0.0.10",
     "vuetify": "^2.4.6"
   },
   "devDependencies": {
