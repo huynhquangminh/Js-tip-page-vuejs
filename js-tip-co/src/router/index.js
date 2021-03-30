@@ -20,7 +20,7 @@ const routes = [
         component: Home,
     },
     {
-        path: '/javascript/detail:id?',
+        path: '/javascript/detail/:id?',
         name: 'javascriptDetail',
         component: JavascriptDetail,
     },

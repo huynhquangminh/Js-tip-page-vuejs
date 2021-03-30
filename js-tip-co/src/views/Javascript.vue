@@ -4,7 +4,7 @@
             <div class="javascript_top__content">
                 <div class="javascript_top__contentTitle">What is the JavaScript ternary operator?</div>
                 <div class="javascript_top__contentDes">The ternary operator is a shortcut for the if statement.</div>
-                <a class="javascript_top__contentAction" href=""> Read More </a>
+                <a class="javascript_top__contentAction" @click="gotoDetail"> Read More </a>
             </div>
         </div>
         <div class="javascript_content">
@@ -38,6 +38,14 @@ export default {
         SidebarLeft,
         SwiperVue,
     },
+    methods: {
+        gotoDetail () {
+            this.$router.push({
+                name:'javascriptDetail',
+                params: { id: 123 },
+            })
+        }
+    }
 };
 </script>
 <style lang="scss">

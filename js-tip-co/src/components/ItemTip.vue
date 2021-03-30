@@ -15,7 +15,7 @@
                 </div>
             </v-card-text>
             <v-card-actions class="itemTip_action">
-                <a class="itemTip_action__link" href="">Read More →</a>
+                <a class="itemTip_action__link" @click="navigation">Read More →</a>
             </v-card-actions>
         </v-card>
     </div>
@@ -24,6 +24,16 @@
 export default {
     name: 'ItemTip',
     components: {},
+    methods: {
+        navigation () {
+            if (this.$route.name === 'home' || this.$route.name === 'javascript' ) {
+                this.$router.push({
+                  name: 'javascriptDetail',
+                  params: { id: 123 },
+                })
+            }
+        }
+    }
 };
 </script>
 <style lang="scss">
@@ -55,6 +65,7 @@ export default {
             font-weight: bold;
             text-decoration: none;
             color: #242424;
+            cursor: pointer;
         }
     }
     &:hover {
