@@ -6,7 +6,7 @@
                 <div
                     class="react_top__contentDes"
                 >React uses a mechanism called reconciliation for efficient rendering on update.</div>
-                <a class="react_top__contentAction" href>Read More</a>
+                <a class="react_top__contentAction" @click="goToDetail">Read More</a>
             </div>
         </div>
         <div class="react_content">
@@ -40,6 +40,14 @@ export default {
         SidebarLeft,
         SwiperVue,
     },
+    methods: {
+        goToDetail () {
+            this.$router.push({
+                name: 'reactDetail',
+                params: { id: 123 },
+            })
+        }
+    }
 };
 </script>
 <style lang="scss">

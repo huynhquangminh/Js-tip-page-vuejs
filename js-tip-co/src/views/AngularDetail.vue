@@ -5,7 +5,7 @@
 import TipDetail from '../components/TipDetail.vue';
 
 export default {
-    name: 'JavascriptDetail',
+    name: 'AngularDetail',
     components: {
         TipDetail,
     }

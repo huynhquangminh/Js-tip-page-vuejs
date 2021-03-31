@@ -26,11 +26,40 @@ export default {
     components: {},
     methods: {
         navigation () {
-            if (this.$route.name === 'home' || this.$route.name === 'javascript' ) {
-                this.$router.push({
-                  name: 'javascriptDetail',
-                  params: { id: 123 },
-                })
+            // type
+            switch (this.$route.name) {
+                case 'home' || 'javascript':
+                    this.$router.push({
+                        name: 'javascriptDetail',
+                        params: { id: 123 },
+                    })
+                    break;
+                case 'react':
+                    this.$router.push({
+                        name: 'reactDetail',
+                        params: { id: 123 },
+                    })
+                    break;
+                case 'angular':
+                    this.$router.push({
+                        name: 'angularDetail',
+                        params: { id: 123 },
+                    })
+                    break;
+                case 'vuejs':
+                    this.$router.push({
+                        name: 'vueDetail',
+                        params: { id: 123 },
+                    })
+                    break;
+                case 'more':
+                    this.$router.push({
+                        name: 'moreDetail',
+                        params: { id: 123 },
+                    })
+                    break;
+                default:
+                    break;
             }
         }
     }

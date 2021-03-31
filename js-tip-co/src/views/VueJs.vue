@@ -6,7 +6,7 @@
                 <div
                     class="vueJs_top__contentDes"
                 >In this tip I am going to show how to pass data between scopes preventing unwanted scopes created by ng-repeat and ng-if</div>
-                <a class="vueJs_top__contentAction" href>Read More</a>
+                <a class="vueJs_top__contentAction" @click="goToDetail">Read More</a>
             </div>
         </div>
         <div class="vueJs_content">
@@ -40,6 +40,14 @@ export default {
         SidebarLeft,
         SwiperVue,
     },
+    methods: {
+        goToDetail () {
+            this.$router.push({
+                name: 'vueDetail',
+                params: { id: 123 },
+            })
+        }
+    }
 };
 </script>
 <style lang="scss">

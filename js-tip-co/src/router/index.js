@@ -3,6 +3,10 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Javascript from '../views/Javascript.vue'
 import JavascriptDetail from '../views/JavascriptDetail.vue'
+import ReactDetail from '../views/ReactDetail.vue'
+import AngularDetail from '../views/AngularDetail.vue'
+import VueDetail from '../views/VueDetail.vue'
+import MoreDetail from '../views/MoreDetail.vue'
 import React from '../views/React.vue'
 import Angular from '../views/Angular.vue'
 import VueJs from '../views/VueJs.vue'
@@ -30,9 +34,19 @@ const routes = [
         component: Javascript
     },
     {
+        path: '/react/detail/:id?',
+        name: 'reactDetail',
+        component: ReactDetail,
+    },
+    {
         path: '/react',
         name: 'react',
         component: React,
+    },
+    {
+        path: '/angular/detail/:id?',
+        name: 'angularDetail',
+        component: AngularDetail,
     },
     {
         path: '/angular',
@@ -40,9 +54,19 @@ const routes = [
         component: Angular,
     },
     {
+        path: '/vuejs/detail/:id?',
+        name: 'vueDetail',
+        component: VueDetail,
+    },
+    {
         path: '/vuejs',
         name: 'vuejs',
         component: VueJs,
+    },
+    {
+        path: '/more/detail/:id?',
+        name: 'moreDetail',
+        component: MoreDetail,
     },
     {
         path: '/more',
