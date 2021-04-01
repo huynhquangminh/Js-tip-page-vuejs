@@ -109,7 +109,8 @@ export default {
     background-color: #f9d732;
     &_content {
         margin: auto;
-        width: 75%;
+        width: 85%;
+        max-width: 1150px;
         height: 120px;
         display: flex;
         align-items: center;

@@ -58,7 +58,8 @@ export default {
         padding: 150px 0 50px 0;
         background-color: rgba(96, 125, 139);
         &__content {
-            width: 75%;
+            width: 85%;
+            max-width: 1150px;
             margin: auto;
             color: #f8f8f4;
             &Title {
@@ -88,7 +89,8 @@ export default {
         display: flex;
         flex-wrap: wrap;
         margin: auto;
-        width: 75%;
+        width: 85%;
+        max-width: 1150px;
         padding: 60px 0 0;
     }
     &_tips {

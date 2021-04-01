@@ -42,7 +42,8 @@ export default {
     &_content {
       display: flex;
       margin: auto;
-      width: 75%;
+      width: 85%;
+      max-width: 1150px;
       flex-wrap: wrap;
       justify-content: center;
     //   @media (max-width: 770px) {

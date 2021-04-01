@@ -40,7 +40,8 @@ export default {
     padding: 50px 0 80px;
     &_content {
         margin: auto;
-        width: 75%;
+        width: 85%;
+        max-width: 1150px;
         display: flex;
         justify-content: space-between;
         &_title {
