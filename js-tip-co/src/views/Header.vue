@@ -172,7 +172,7 @@ export default {
         }
     }
     &_menuActiveOpen {
-        height: 300px;
+        overflow: hidden;
     }
 }
 
@@ -192,6 +192,9 @@ export default {
         }
         &_nav {
             display: none;
+        }
+        &_menuActiveOpen {
+            height: 300px;
         }
     }
 }

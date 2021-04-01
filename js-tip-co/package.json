@@ -12,6 +12,8 @@
     "swiper": "5.4.5",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-prism-editor": "^1.2.2",
+    "vue-prismjs": "^1.2.0",
     "vue-router": "^3.5.1",
     "vue-sticky-directive": "0.0.10",
     "vuetify": "^2.4.6"

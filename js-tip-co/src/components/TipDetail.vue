@@ -31,21 +31,31 @@
         </div>
         <div class="tipDetail_content">
             <div class="tipDetail_contentData" v-html="htmlText"></div>
+            <prism-editor
+                class="tipDetail_prismEditor"
+                v-model="code"
+                :highlight="highlighter"
+                :readonly="true"
+                line-numbers
+            ></prism-editor>
         </div>
         <div class="tipDetail_book">
             <div class="tipDetail_book__content">
-                 <div class="tipDetail_bookImg">
+                <div class="tipDetail_bookImg">
                     <img src="https://www.jstips.co/assets/images/book.png" width="250" />
                 </div>
                 <div class="tipDetail_bookInfo">
-                    <span> MEET THE NEW JSTIPS BOOK</span> <br>
-                    <a class="tipDetail_bookInfo_title" href="" >The book to ace the JavaScript Interview.</a>
-                    <p>
-                        A short book with 100 answers designed to boost your knowledge and help you ace the technical interview within a few days.
-                    </p>
-                    <a class="tipDetail_bookInfo_btn" href="" >GET THE BOOK NOW </a>
-                    <a class="tipDetail_bookInfo_btn2" href="" ><img src="https://www.jstips.co/book/assets/bestseller.png" width="300" /> </a>
-                    
+                    <span>MEET THE NEW JSTIPS BOOK</span>
+                    <br />
+                    <a
+                        class="tipDetail_bookInfo_title"
+                        href
+                    >The book to ace the JavaScript Interview.</a>
+                    <p>A short book with 100 answers designed to boost your knowledge and help you ace the technical interview within a few days.</p>
+                    <a class="tipDetail_bookInfo_btn" href>GET THE BOOK NOW</a>
+                    <a class="tipDetail_bookInfo_btn2" href>
+                        <img src="https://www.jstips.co/book/assets/bestseller.png" width="300" />
+                    </a>
                 </div>
             </div>
         </div>
@@ -55,32 +65,43 @@
     </div>
 </template>
 <script>
+import { PrismEditor } from 'vue-prism-editor';
+import 'vue-prism-editor/dist/prismeditor.min.css'; // import the styles somewhere
+
+// import highlighting library (you can use any library you want just return html string)
+import { highlight, languages } from 'prismjs/components/prism-core';
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/themes/prism-tomorrow.css';
 import RelatedTips from '../components/RelatedTips.vue';
 export default {
     name: 'TipDetail',
     components: {
         RelatedTips,
+        PrismEditor,
     },
     data() {
         return {
-            htmlText: `<p>The ternary operator is a shortcut for the&nbsp;<code class="language-plaintext highlighter-rouge">if</code>&nbsp;statement. It consists of three operands; a question mark, a condition, and an expression to execute if the condition is true, followed by a colon and another expression to execute if it&rsquo;s false.</p>
-<pre class="highlight"><code><span class="kd">let</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">26</span><span class="p">;</span>
-
-<span class="c1">// condition ? expression if true : expression if false</span>
-<span class="kd">let</span> <span class="nx">drink</span> <span class="o">=</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">21</span><span class="p">)</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">Beer</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">Juice</span><span class="dl">"</span><span class="p">;</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">drink</span><span class="p">);</span> <span class="c1">// "Beer"</span>
-
-<span class="c1">// Equivalent to:</span>
-<span class="kd">let</span> <span class="nx">drink</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">((</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">21</span><span class="p">))</span> <span class="p">{</span>
-  <span class="nx">drink</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Beer</span><span class="dl">"</span><span class="p">;</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="nx">drink</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Juice</span><span class="dl">"</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">drink</span><span class="p">);</span> <span class="c1">// "Beer"</span></code></pre>`,
+            code: `
+    let age = 26;
+    // condition ? expression if true : expression if false
+    let drink = (age >= 21) ? "Beer" : "Juice";
+    console.log(drink); // "Beer"
+    // Equivalent to:
+    let drink;
+    if ((age >= 21)) {
+    drink = "Beer";
+    } else {
+    drink = "Juice";
+    }
+    console.log(drink); // "Beer"`,
+            htmlText: `<p>The ternary operator is a shortcut for the&nbsp;<code class="language-plaintext highlighter-rouge">if</code>&nbsp;statement. It consists of three operands; a question mark, a condition, and an expression to execute if the condition is true, followed by a colon and another expression to execute if it&rsquo;s false.</p>`,
         };
+    },
+    methods: {
+        highlighter(code) {
+            return highlight(code, languages.js); //returns html
+        },
     },
 };
 </script>
@@ -123,6 +144,7 @@ export default {
     }
     &_book {
         background: #221a5a;
+        margin-top: 50px;
         &__content {
             display: flex;
             width: 60%;
@@ -188,7 +210,7 @@ export default {
         }
     }
     &_related {
-       margin: 0 0 20px 0; 
+        margin: 0 0 20px 0;
     }
     .vue-sticky-placeholder {
         padding-top: 10px !important;
@@ -217,6 +239,20 @@ export default {
                 }
             }
         }
+    }
+    &_prismEditor {
+        width: 75%;
+        margin: auto;
+        background: #2d2d2d;
+        color: #ccc;
+        /* you must provide font-family font-size line-height. Example: */
+        font-family: Fira code, Fira Mono, Consolas, Menlo, Courier, monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 5px;
+    }
+    .prism-editor__textarea:focus {
+        outline: none;
     }
 }
 </style>
