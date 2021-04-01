@@ -78,7 +78,7 @@ export default {
         }
     }
 }
-@media (max-width: 787px) {
+@media (max-width: 770px) {
     .footer {
         &_content {
             display: block;

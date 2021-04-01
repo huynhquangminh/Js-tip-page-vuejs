@@ -127,7 +127,7 @@ export default {
         display: flex;
     }
 }
-@media (max-width: 670px) {
+@media (max-width: 770px) {
     .javascript {
         &_top {
             padding: 50px 0 50px 0;

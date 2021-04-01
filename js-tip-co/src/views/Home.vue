@@ -44,9 +44,10 @@ export default {
       margin: auto;
       width: 75%;
       flex-wrap: wrap;
-      @media (max-width: 670px) {
-            justify-content: center;
-        }
+      justify-content: center;
+    //   @media (max-width: 770px) {
+    //         justify-content: center;
+    //     }
     }
     &_tips {
         min-width: 350px;
@@ -78,7 +79,7 @@ export default {
                 background-color: #29293f;
                 color: #f8f8f4;
             }
-            @media (max-width: 670px) {
+            @media (max-width: 770px) {
                 overflow: auto;
                 width: 100%
             }
@@ -87,7 +88,7 @@ export default {
     &_left {
         width: 30%;
         margin-top: 50px;
-        @media (max-width: 670px) {
+        @media (max-width: 770px) {
             width: auto;
         }
     }
