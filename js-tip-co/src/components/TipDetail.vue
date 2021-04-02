@@ -62,6 +62,9 @@
         <div class="tipDetail_related">
             <RelatedTips />
         </div>
+        <div class="tipDetail_comment">
+            <CommentTipDetail />
+        </div>
     </div>
 </template>
 <script>
@@ -74,11 +77,13 @@ import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism-tomorrow.css';
 import RelatedTips from '../components/RelatedTips.vue';
+import CommentTipDetail from '../components/CommentTipDetail.vue';
 export default {
     name: 'TipDetail',
     components: {
         RelatedTips,
         PrismEditor,
+        CommentTipDetail
     },
     data() {
         return {
@@ -255,6 +260,12 @@ export default {
     }
     .prism-editor__textarea:focus {
         outline: none;
+    }
+    &_comment {
+        width: 65%;
+        max-width: 1150px;
+        min-width: 730px;
+        margin: auto;
     }
 }
 @media (max-width: 770px) {

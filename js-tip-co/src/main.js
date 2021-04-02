@@ -6,6 +6,8 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import router from './router'
 import Sticky from 'vue-sticky-directive'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import '@mdi/font/css/materialdesignicons.css'
 Vue.use(Sticky)
 Vue.use(Vuetify)
 Vue.use(VueAwesomeSwiper)
