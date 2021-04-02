@@ -134,6 +134,8 @@ export default {
     &_content {
         // height: 2000px;
         width: 65%;
+        max-width: 1150px;
+        min-width: 730px;
         // margin: 50px 0 20px 0;
         margin: auto;
         &Data {
@@ -253,6 +255,30 @@ export default {
     }
     .prism-editor__textarea:focus {
         outline: none;
+    }
+}
+@media (max-width: 770px) {
+    .tipDetail {
+        &_top {
+            width: 80%;
+            text-align: center;
+            &Title {
+                font-size: 36px;
+            }
+        }
+        &_book {
+            overflow: hidden;
+            display: none;
+        }
+        &_content {
+            width: 100%;
+        }
+         &_related {
+            margin: 0 0 20px 0;
+            .itemTip {
+                margin-bottom: 20px;
+            }
+        }
     }
 }
 </style>

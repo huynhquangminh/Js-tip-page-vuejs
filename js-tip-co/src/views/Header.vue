@@ -156,6 +156,7 @@ export default {
             line-height: 1.8;
             a {
                 text-decoration: none;
+                color: black;
                 &:hover {
                     font-weight: bold;
                 }
