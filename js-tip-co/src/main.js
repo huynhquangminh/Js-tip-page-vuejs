@@ -8,6 +8,8 @@ import router from './router'
 import Sticky from 'vue-sticky-directive'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import '@mdi/font/css/materialdesignicons.css'
+import store from './store/index'
+
 Vue.use(Sticky)
 Vue.use(Vuetify)
 Vue.use(VueAwesomeSwiper)
@@ -15,6 +17,7 @@ Vue.config.productionTip = false
 const vuetifyOptions = { }
 new Vue({
   router,
+  store,
   vuetify: new Vuetify(vuetifyOptions),
   render: h => h(App)
 }).$mount('#app')

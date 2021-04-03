@@ -78,6 +78,7 @@ export default {
                 border-radius: 4px;
                 text-decoration: none;
                 text-align: center;
+                cursor: pointer;
             }
         }
     }
