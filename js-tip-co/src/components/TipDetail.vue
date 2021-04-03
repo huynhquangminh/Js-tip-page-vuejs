@@ -6,6 +6,7 @@
             sticky-offset="{top: 275, bottom: 127}"
             sticky-side="both"
             sticky-z-index="20"
+            v-if="false"
         >
             <ul class="sticky_list">
                 <li class="sticky_listShare">
@@ -262,7 +263,7 @@ export default {
         outline: none;
     }
     &_comment {
-        width: 65%;
+        width: 58%;
         max-width: 1150px;
         min-width: 730px;
         margin: auto;

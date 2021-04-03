@@ -51,15 +51,27 @@
         </div>
         <div class="commentTipDetail_login">
             <div class="commentTipDetail_loginIconGroup">
-                <span>LOG IN WITH</span> <br>
+                <span class="commentTipDetail_loginIconGroup__text">LOG IN WITH</span> <br>
                 <span>
-                     <v-btn color="#0D47A1" fab x-small dark> <v-icon >mdi-facebook</v-icon> </v-btn>
-                     <v-btn color="#2196F3" fab x-small dark> <v-icon>mdi-twitter</v-icon> </v-btn>
-                     <v-btn color="#E53935" fab x-small dark> <v-icon>mdi-google</v-icon> </v-btn>
+                     <v-btn class="commentTipDetail_loginIconGroup__btn" color="#0D47A1" fab x-small dark> <v-icon >mdi-facebook</v-icon> </v-btn>
+                     <v-btn class="commentTipDetail_loginIconGroup__btn" color="#2196F3" fab x-small dark> <v-icon>mdi-twitter</v-icon> </v-btn>
+                     <v-btn class="commentTipDetail_loginIconGroup__btn" color="#E53935" fab x-small dark> <v-icon>mdi-google</v-icon> </v-btn>
                 </span>
             </div>
             <div class="commentTipDetail_loginForm">
-                <span>OR SIGN UP WITH DISQUS <v-icon >mdi-help-circle-outline</v-icon></span>
+                <span class="commentTipDetail_loginForm__text">OR SIGN UP WITH DISQUS <v-icon >mdi-help-circle-outline</v-icon></span>
+                <ValidationObserver ref="obs" slim>
+                    <ValidationProvider name="name" slim>
+                        <v-text-field  placeholder="Name"></v-text-field>
+                    </ValidationProvider>
+                    <ValidationProvider name="email"  slim>
+                        <v-text-field placeholder="Email"></v-text-field>
+                    </ValidationProvider>
+                    <ValidationProvider name="pasword"  slim>
+                        <v-text-field placeholder="Password"></v-text-field>
+                    </ValidationProvider>
+                    <v-btn class="commentTipDetail_loginForm__btn">Login</v-btn>
+                </ValidationObserver>
             </div>
         </div>
     </div>
@@ -67,6 +79,11 @@
 <script>
 export default {
     name: 'CommentTipDetail',
+    data() {
+        return {
+            name: 'xxxx'
+        }
+    }
 };
 </script>
 <style lang="scss">
@@ -175,6 +192,35 @@ export default {
     }
     &_login {
         display: flex;
+        &IconGroup {
+            width: 15%;
+            &__text {
+                font-size: 12px;
+                font-weight: bold;
+                color: #656c7a;
+                margin-bottom: 10px
+            }
+            &__btn {
+                margin-right: 5px;
+            }
+        }
+        &Form {
+            width: 85%;
+            margin-left: 30px;
+            &__text {
+                font-size: 12px;
+                font-weight: bold;
+                color: #656c7a;
+                margin-bottom: 10px
+            }
+            .v-btn__content {
+                color: white;
+            }
+            &__btn {
+                float: right;
+                background-color: #007aff !important;
+            }
+        }
     }
 }
 </style>

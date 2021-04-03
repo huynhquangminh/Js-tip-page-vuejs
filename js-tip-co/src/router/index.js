@@ -11,6 +11,7 @@ import React from '../views/React.vue'
 import Angular from '../views/Angular.vue'
 import VueJs from '../views/VueJs.vue'
 import More from '../views/More.vue'
+import NewTip from '../views/NewTip.vue'
 Vue.use(VueRouter)
 const routes = [
     {
@@ -22,6 +23,11 @@ const routes = [
         path: '/home',
         name: 'home',
         component: Home,
+    },
+    {
+        path: '/new-tip',
+        name: 'newTip',
+        component: NewTip,
     },
     {
         path: '/javascript/detail/:id?',
