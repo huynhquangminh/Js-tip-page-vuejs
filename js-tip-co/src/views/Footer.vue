@@ -54,6 +54,7 @@ export default {
                 font-weight: bold;
             }
             &__link {
+                cursor: pointer;
                 font-size: 14px;
                 font-weight: bold;
                 color: #f9d732;
@@ -64,6 +65,7 @@ export default {
         }
         &_fllow {
             &_text {
+                cursor: pointer;
                 color: #f8f8f4;
                 &:hover {
                     color: #f9d732;

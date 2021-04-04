@@ -64,11 +64,11 @@
             </div>
             <div class="commentTipDetail_loginForm">
                 <span class="commentTipDetail_loginForm__text">OR SIGN UP WITH DISQUS <v-icon style="font-size: 18px" >mdi-help-circle-outline</v-icon></span>
-                <ValidationObserver ref="obs" v-slot="{invalid}" slim class="commentTipDetail_loginForm__input">
-                        <ValidationProvider name="name" v-slot="{ errors}" rules="required" slim>
-                            <v-text-field outlined dense required placeholder="Name" :error-messages="errors" v-model="registorModel.name" @focus="isFocus = true"></v-text-field>
+                <ValidationObserver ref="obs" v-slot="{invalid}" tag="form" slim class="commentTipDetail_loginForm__input">
+                        <ValidationProvider name="name"  v-slot="{ errors}" rules="required" slim>
+                            <v-text-field outlined  dense required placeholder="Name" :error-messages="errors" v-model="registorModel.name" @focus="focusName"></v-text-field>
                         </ValidationProvider>
-                        <ValidationProvider name="email" v-slot="{ errors }" rules="required|email"  slim>
+                        <ValidationProvider name="email" :error="true" v-slot="{ errors }" rules="required|email"  slim>
                             <v-text-field v-if="isFocus" outlined dense placeholder="Email" :error-messages="errors" v-model="registorModel.email"></v-text-field>
                         </ValidationProvider>
                         <ValidationProvider name="pasword" v-slot="{ errors }" rules="required"  slim>
@@ -97,6 +97,10 @@ export default {
     methods: {
         recommend () {
             this.recommendNum = this.recommendNum === 1 ? 0 : 1
+        },
+        focusName () {
+            this.isFocus = true
+            this.$refs.obs.reset()
         }
     }
 };
