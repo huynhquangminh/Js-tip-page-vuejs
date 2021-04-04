@@ -29,7 +29,11 @@
         </div>
         <div class="commentTipDetail_share">
             <div class="commentTipDetail_shareGroup">
-                <span class="commentTipDetail_shareGroup__recommend"> <v-icon color="#E91E63" style="font-size:22px">mdi-heart-outline</v-icon> Recommend </span>
+                <span class="commentTipDetail_shareGroup__recommend" @click="recommend()">
+                    <v-icon color="#E91E63" style="font-size:22px" v-if="!recommendNum">mdi-heart-outline</v-icon>
+                    <v-icon color="#E91E63" style="font-size:22px" v-if="recommendNum">mdi-heart</v-icon>
+                    Recommend <span v-if="recommendNum">{{recommendNum}}</span>
+                </span>
                 <span class="commentTipDetail_shareGroup__tweet"> <a><v-icon  color="#ffff" style="font-size:15px">mdi-twitter</v-icon> Tweet</a> </span>
                 <span class="commentTipDetail_shareGroup__face"> <a><v-icon  color="#ffff" style="font-size:15px">mdi-facebook</v-icon> Share </a> </span>
             </div>
@@ -59,18 +63,18 @@
                 </span>
             </div>
             <div class="commentTipDetail_loginForm">
-                <span class="commentTipDetail_loginForm__text">OR SIGN UP WITH DISQUS <v-icon >mdi-help-circle-outline</v-icon></span>
-                <ValidationObserver ref="obs" slim>
-                    <ValidationProvider name="name" slim>
-                        <v-text-field  placeholder="Name"></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider name="email"  slim>
-                        <v-text-field placeholder="Email"></v-text-field>
-                    </ValidationProvider>
-                    <ValidationProvider name="pasword"  slim>
-                        <v-text-field placeholder="Password"></v-text-field>
-                    </ValidationProvider>
-                    <v-btn class="commentTipDetail_loginForm__btn">Login</v-btn>
+                <span class="commentTipDetail_loginForm__text">OR SIGN UP WITH DISQUS <v-icon style="font-size: 18px" >mdi-help-circle-outline</v-icon></span>
+                <ValidationObserver ref="obs" v-slot="{invalid}" slim class="commentTipDetail_loginForm__input">
+                        <ValidationProvider name="name" v-slot="{ errors}" rules="required" slim>
+                            <v-text-field outlined dense required placeholder="Name" :error-messages="errors" v-model="registorModel.name" @focus="isFocus = true"></v-text-field>
+                        </ValidationProvider>
+                        <ValidationProvider name="email" v-slot="{ errors }" rules="required|email"  slim>
+                            <v-text-field v-if="isFocus" outlined dense placeholder="Email" :error-messages="errors" v-model="registorModel.email"></v-text-field>
+                        </ValidationProvider>
+                        <ValidationProvider name="pasword" v-slot="{ errors }" rules="required"  slim>
+                            <v-text-field v-if="isFocus" outlined dense placeholder="Password" :error-messages="errors" v-model="registorModel.password"></v-text-field>
+                        </ValidationProvider>
+                        <v-btn v-if="isFocus" class="commentTipDetail_loginForm__btn" :disabled="invalid">Sign Up</v-btn>
                 </ValidationObserver>
             </div>
         </div>
@@ -81,7 +85,18 @@ export default {
     name: 'CommentTipDetail',
     data() {
         return {
-            name: 'xxxx'
+            recommendNum: 0,
+            isFocus: false,
+            registorModel: {
+                name: '',
+                email: '',
+                password: ''
+            }
+        }
+    },
+    methods: {
+        recommend () {
+            this.recommendNum = this.recommendNum === 1 ? 0 : 1
         }
     }
 };
@@ -219,6 +234,13 @@ export default {
             &__btn {
                 float: right;
                 background-color: #007aff !important;
+            }
+            &__input {
+                display: block;
+                margin-top: 10px;
+                .v-messages__message {
+                    color: red !important;
+                }
             }
         }
     }

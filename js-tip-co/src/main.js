@@ -10,6 +10,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import '@mdi/font/css/materialdesignicons.css'
 import store from './store/index'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
+import '@/directives/validations'
 
 Vue.component('ValidationProvider', ValidationProvider)
 Vue.component('ValidationObserver', ValidationObserver)

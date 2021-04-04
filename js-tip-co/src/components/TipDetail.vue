@@ -118,7 +118,9 @@ export default {
     margin-top: 30px;
     // width: 75%;
     &_top {
-        width: 40%;
+        width: 65%;
+        max-width: 1150px;
+        min-width: 730px;
         margin: auto;
         &Title {
             letter-spacing: -1px;
@@ -128,8 +130,12 @@ export default {
             line-height: 1.2;
             color: #29293f;
             margin-bottom: 30px;
+            width: 70%;
+            margin: auto;
         }
         &Info {
+            width: 70%;
+            margin: auto;
             font-size: 16px;
             color: #1f1e30;
             span {
@@ -263,7 +269,7 @@ export default {
         outline: none;
     }
     &_comment {
-        width: 58%;
+        width: 65%;
         max-width: 1150px;
         min-width: 730px;
         margin: auto;
