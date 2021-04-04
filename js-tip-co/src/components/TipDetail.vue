@@ -1,44 +1,49 @@
 <template>
-    <div class="tipDetail" sticky-container>
-        <div
-            class="sticky"
-            v-sticky
-            sticky-offset="{top: 275, bottom: 127}"
-            sticky-side="both"
-            sticky-z-index="20"
-            v-if="false"
-        >
-            <ul class="sticky_list">
-                <li class="sticky_listShare">
-                    <img src="../assets/share.svg" />
-                </li>
-                <li class="sticky_listItem">
-                    <img src="../assets/twitter.svg" />
-                </li>
-                <li class="sticky_listItem">
-                    <img src="../assets/facebook.svg" />
-                </li>
-                <li class="sticky_listItem">
-                    <img src="../assets/linkedin.svg" />
-                </li>
-            </ul>
-        </div>
-        <div class="tipDetail_top">
-            <div class="tipDetail_topTitle">What is the JavaScript ternary operator?</div>
-            <div class="tipDetail_topInfo">
-                By
-                <span>@loverajoel</span> on Feb 2, 2021
+    <div class="tipDetail" >
+        <div class="tipDetail_groupContent" sticky-container>
+             <div class="tipDetail_groupContent__sticky">
+                <div
+                    ref="sticky"
+                    class="sticky"
+                    v-sticky="isSticky"
+                    sticky-side="both"
+                    sticky-z-index="10"
+                >
+                <ul class="sticky_list">
+                    <li class="sticky_listShare">
+                        <img src="../assets/share.svg" />
+                    </li>
+                    <li class="sticky_listItem">
+                        <img src="../assets/twitter.svg" />
+                    </li>
+                    <li class="sticky_listItem">
+                        <img src="../assets/facebook.svg" />
+                    </li>
+                    <li class="sticky_listItem">
+                        <img src="../assets/linkedin.svg" />
+                    </li>
+                </ul>
+                </div>
             </div>
-        </div>
-        <div class="tipDetail_content">
-            <div class="tipDetail_contentData" v-html="htmlText"></div>
-            <prism-editor
-                class="tipDetail_prismEditor"
-                v-model="code"
-                :highlight="highlighter"
-                :readonly="true"
-                line-numbers
-            ></prism-editor>
+            <div class="tipDetail_groupContent__detail">
+                <div class="tipDetail_top">
+                    <div class="tipDetail_topTitle">What is the JavaScript ternary operator?</div>
+                    <div class="tipDetail_topInfo">
+                        By
+                        <span>@loverajoel</span> on Feb 2, 2021
+                    </div>
+                </div>
+                <div class="tipDetail_content">
+                    <div class="tipDetail_contentData" v-html="htmlText"></div>
+                    <prism-editor
+                        class="tipDetail_prismEditor"
+                        v-model="code"
+                        :highlight="highlighter"
+                        :readonly="true"
+                        line-numbers
+                    ></prism-editor>
+                </div>    
+            </div>
         </div>
         <div class="tipDetail_book">
             <div class="tipDetail_book__content">
@@ -88,6 +93,7 @@ export default {
     },
     data() {
         return {
+            isSticky: true,
             code: `
     let age = 26;
     // condition ? expression if true : expression if false
@@ -104,6 +110,7 @@ export default {
             htmlText: `<p>The ternary operator is a shortcut for the&nbsp;<code class="language-plaintext highlighter-rouge">if</code>&nbsp;statement. It consists of three operands; a question mark, a condition, and an expression to execute if the condition is true, followed by a colon and another expression to execute if it&rsquo;s false.</p>`,
         };
     },
+    mounted () {},
     methods: {
         highlighter(code) {
             return highlight(code, languages.js); //returns html
@@ -117,6 +124,16 @@ export default {
     margin: auto;
     margin-top: 30px;
     // width: 75%;
+     &_groupContent {
+        display: flex;
+        &__sticky {
+            width: 100px;
+        }
+        &__detail {
+            width: 89%;
+            margin: auto;
+        }
+    }
     &_top {
         width: 65%;
         max-width: 1150px;
@@ -231,7 +248,8 @@ export default {
     }
     .sticky {
         // width: 50px;
-        left: 100px !important;
+        // left: 100px !important;
+        margin-left: 50px;
         display: flex;
         &_list {
             list-style: none;
