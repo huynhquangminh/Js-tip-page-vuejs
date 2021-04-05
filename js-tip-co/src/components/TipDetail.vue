@@ -291,6 +291,7 @@ export default {
         max-width: 1150px;
         min-width: 730px;
         margin: auto;
+        padding-top: 50px;
     }
 }
 @media (max-width: 770px) {

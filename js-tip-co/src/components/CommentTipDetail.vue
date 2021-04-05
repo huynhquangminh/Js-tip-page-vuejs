@@ -90,9 +90,9 @@
         <div class="commentTipDetail_bottom">
             <div class="commentTipDetail_bottom__text">Be the first to comment.</div>
             <div class="commentTipDetail_bottom__info">
-                <span><v-icon style="font-size:22px">mdi-email-outline</v-icon>Subscribe</span>
-                <span><v-icon style="font-size:22px">mdi-disqus</v-icon>Subscribe</span>
-                <span><v-icon style="font-size:22px">mdi-alert</v-icon>Subscribe</span>
+                <span style="margin-right: 25px"><v-icon style="font-size:22px">mdi-email-outline</v-icon>Subscribe</span>
+                <span style="margin-right: 25px"><v-icon style="font-size:22px">mdi-disqus</v-icon>Add Disqus to your site</span>
+                <span style="margin-right: 25px"><v-icon style="font-size:22px">mdi-alert</v-icon>Do Not Sell My Data</span>
                 <span style="float:right">
                     <img src="https://c.disquscdn.com/next/embed/assets/img/sprite.654110a9206fd22f08cca0798e34a65e.png" width="75">
                 </span>
