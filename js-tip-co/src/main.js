@@ -11,12 +11,16 @@ import '@mdi/font/css/materialdesignicons.css'
 import store from './store/index'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import '@/directives/validations'
+import 'jodit/build/jodit.min.css'
+import JoditVue from 'jodit-vue'
+
 
 Vue.component('ValidationProvider', ValidationProvider)
 Vue.component('ValidationObserver', ValidationObserver)
 Vue.use(Sticky)
 Vue.use(Vuetify)
 Vue.use(VueAwesomeSwiper)
+Vue.use(JoditVue)
 Vue.config.productionTip = false
 const vuetifyOptions = { }
 new Vue({

@@ -53,6 +53,14 @@
                 </v-menu>
             </div>
         </div>
+        <div class="commentTipDetail_comment">
+            <div class="commentTipDetail_commentAvatar">
+                <img src="https://a.disquscdn.com/1616607624/images/noavatar92.png" width="50" height="50" >
+            </div>
+            <div class="commentTipDetail_commentEditor">
+                <jodit-editor v-model="content" :buttons="buttonsJodit" />
+            </div>
+        </div>
         <div class="commentTipDetail_login">
             <div class="commentTipDetail_loginIconGroup">
                 <span class="commentTipDetail_loginIconGroup__text">LOG IN WITH</span> <br>
@@ -74,8 +82,20 @@
                         <ValidationProvider name="pasword" v-slot="{ errors }" rules="required"  slim>
                             <v-text-field v-if="isFocus" outlined dense placeholder="Password" :error-messages="errors" v-model="registorModel.password"></v-text-field>
                         </ValidationProvider>
+                        <p class="commentTipDetail_loginForm__note" v-if="isFocus">Please access our Privacy Policy to learn what personal data Disqus collects and your choices about how it is used. All users of our service are also subject to our Terms of Service.</p>
                         <v-btn v-if="isFocus" class="commentTipDetail_loginForm__btn" :disabled="invalid">Sign Up</v-btn>
                 </ValidationObserver>
+            </div>
+        </div>
+        <div class="commentTipDetail_bottom">
+            <div class="commentTipDetail_bottom__text">Be the first to comment.</div>
+            <div class="commentTipDetail_bottom__info">
+                <span><v-icon style="font-size:22px">mdi-email-outline</v-icon>Subscribe</span>
+                <span><v-icon style="font-size:22px">mdi-disqus</v-icon>Subscribe</span>
+                <span><v-icon style="font-size:22px">mdi-alert</v-icon>Subscribe</span>
+                <span style="float:right">
+                    <img src="https://c.disquscdn.com/next/embed/assets/img/sprite.654110a9206fd22f08cca0798e34a65e.png" width="75">
+                </span>
             </div>
         </div>
     </div>
@@ -85,6 +105,8 @@ export default {
     name: 'CommentTipDetail',
     data() {
         return {
+            content: '',
+            buttonsJodit: ['image', '|', 'bold', 'underline', 'italic', 'strikethrough','link', 'preview', 'source'],
             recommendNum: 0,
             isFocus: false,
             registorModel: {
@@ -99,11 +121,13 @@ export default {
             this.recommendNum = this.recommendNum === 1 ? 0 : 1
         },
         focusName () {
+            if (!this.isFocus) this.$refs.obs.reset()
             this.isFocus = true
-            this.$refs.obs.reset()
+            
         }
     }
 };
+
 </script>
 <style lang="scss">
 .commentTipDetail {
@@ -209,8 +233,32 @@ export default {
             }
         }
     }
+    &_comment {
+        display: flex;
+        width: 100%;
+        margin-bottom: 10px;
+        &Avatar {
+            margin-right: 15px;
+        }
+        &Editor {
+            width: 100%;
+            .jodit-container {
+                min-height: 100px !important;
+                height: 120px !important;
+            }
+            .jodit-workplace {
+                min-height: 50px !important;
+                height: 80px !important;
+            }
+            .jodit-status-bar {
+                display: none;
+            }
+        }
+    }
     &_login {
         display: flex;
+        padding-left: 65px;
+        padding-bottom: 50px;
         &IconGroup {
             width: 15%;
             &__text {
@@ -225,7 +273,7 @@ export default {
         }
         &Form {
             width: 85%;
-            margin-left: 30px;
+            margin-left: 15px;
             &__text {
                 font-size: 12px;
                 font-weight: bold;
@@ -246,6 +294,28 @@ export default {
                     color: red !important;
                 }
             }
+            &__note {
+                font-size: 13px;
+                color: #687a86;
+            }
+        }
+    }
+    &_bottom {
+        &__text {
+            margin: auto;
+            width: 30%;
+            text-align: center;
+            line-height: 107px;
+            font-size: 15px;
+            color: #687a86;
+            font-weight: 600;
+        }
+        &__info {
+            border-top: 2px solid #e7e9ee;
+            padding: 7px 0 10px;
+            font-size: 12px;
+            color: #687a86;
+            font-weight: 700;
         }
     }
 }
