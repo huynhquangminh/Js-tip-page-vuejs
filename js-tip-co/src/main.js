@@ -13,14 +13,19 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import '@/directives/validations'
 import 'jodit/build/jodit.min.css'
 import JoditVue from 'jodit-vue'
-
-
+import GoogleAuth from '@/config/google.js'
 Vue.component('ValidationProvider', ValidationProvider)
 Vue.component('ValidationObserver', ValidationObserver)
 Vue.use(Sticky)
 Vue.use(Vuetify)
 Vue.use(VueAwesomeSwiper)
 Vue.use(JoditVue)
+const gauthOption = {
+  clientId: '891652649377-t23qjb2562t03fm2l7886qk929nibg84.apps.googleusercontent.com',
+  scope: 'profile email',
+  prompt: 'select_account'
+}
+Vue.use(GoogleAuth, gauthOption)
 Vue.config.productionTip = false
 const vuetifyOptions = { }
 new Vue({

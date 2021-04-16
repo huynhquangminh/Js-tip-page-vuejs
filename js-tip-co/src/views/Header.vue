@@ -21,6 +21,21 @@
                                 v-bind="attrs"
                                 v-on="on"
                                 class="header_contentAction_language"
+                            >Option login</span>
+                        </template>
+                        <v-list>
+                            <v-list-item-title v-ripple @click="logInWithFacebook">Login with Facebook</v-list-item-title>
+                            <v-list-item-title v-ripple @click="loginWithGoogle">Login with Google</v-list-item-title>
+                            <!-- <v-list-item-title v-if="!$auth.isAuthenticated" v-ripple @click="loginWithAppleID">Login with AppleID</v-list-item-title>
+                            <v-list-item-title v-if="$auth.isAuthenticated" v-ripple @click="logoutWithAppleID">Logout with AppleID</v-list-item-title> -->
+                        </v-list>
+                    </v-menu>
+                    <v-menu offset-y :left="true" nudge-right="5" nudge-top="-10">
+                        <template v-slot:activator="{ on, attrs }">
+                            <span
+                                v-bind="attrs"
+                                v-on="on"
+                                class="header_contentAction_language"
                             >{{textLanguage}}</span>
                         </template>
                         <v-list>
@@ -50,22 +65,41 @@
                 </div>
             </div>
             <div class="header_menu" id="menu">
-                <ul class="header_menu_list" >
-                    <li> <span class="header_menu_listTitle">Language</span> </li>
-                    <li class="header_menu_listLanguage" v-for="(item, index) in listLanguage" :key="index">{{ item }}</li>
-                    <li> <span class="header_menu_listTitle">Categories</span></li>
-                    <li><a href="/javascript" class="header_menu_list__link">Javascrip</a></li>
-                    <li><a href="/react" class="header_menu_list__link">React</a></li>
-                    <li><a href="/angular" class="header_menu_list__link">Angular</a></li>
-                    <li><a href="/vuejs" class="header_menu_list__link">VueJs</a></li>
-                    <li><a href="/more" class="header_menu_list__link">More</a></li>
+                <ul class="header_menu_list">
+                    <li>
+                        <span class="header_menu_listTitle">Language</span>
+                    </li>
+                    <li
+                        class="header_menu_listLanguage"
+                        v-for="(item, index) in listLanguage"
+                        :key="index"
+                    >{{ item }}</li>
+                    <li>
+                        <span class="header_menu_listTitle">Categories</span>
+                    </li>
+                    <li>
+                        <a href="/javascript" class="header_menu_list__link">Javascrip</a>
+                    </li>
+                    <li>
+                        <a href="/react" class="header_menu_list__link">React</a>
+                    </li>
+                    <li>
+                        <a href="/angular" class="header_menu_list__link">Angular</a>
+                    </li>
+                    <li>
+                        <a href="/vuejs" class="header_menu_list__link">VueJs</a>
+                    </li>
+                    <li>
+                        <a href="/more" class="header_menu_list__link">More</a>
+                    </li>
                 </ul>
             </div>
         </header>
-        <Nav class="header_nav"  />
+        <Nav class="header_nav" />
     </div>
 </template>
 <script>
+import { initFbsdk } from '@/config/fb.js';
 import Nav from './Nav.vue';
 export default {
     name: 'Header',
@@ -79,28 +113,67 @@ export default {
         };
     },
     mounted() {
+        initFbsdk();
         this.listLanguage = ['English', '中国大陆', 'Español', '台灣'];
         this.textLanguage = 'English';
     },
     methods: {
-        openNav () {
-            const burgerOpen = document.getElementById("burger-open");
-            const burgerClose = document.getElementById("burger-close");
-            const menu = document.getElementById("menu");
-            burgerOpen.style.display = 'none'
-            burgerClose.style.display = 'flex'
-            menu.style.display = 'block'
-            menu.classList.add("header_menuActiveOpen")
+        openNav() {
+            const burgerOpen = document.getElementById('burger-open');
+            const burgerClose = document.getElementById('burger-close');
+            const menu = document.getElementById('menu');
+            burgerOpen.style.display = 'none';
+            burgerClose.style.display = 'flex';
+            menu.style.display = 'block';
+            menu.classList.add('header_menuActiveOpen');
         },
-        closeNav () {
-            const burgerOpen = document.getElementById("burger-open");
-            const burgerClose = document.getElementById("burger-close");
-            const menu = document.getElementById("menu");
-            burgerOpen.style.display = 'flex'
-            burgerClose.style.display = 'none'
-            menu.classList.remove("header_menuActiveOpen")
-        }
-    }
+        closeNav() {
+            const burgerOpen = document.getElementById('burger-open');
+            const burgerClose = document.getElementById('burger-close');
+            const menu = document.getElementById('menu');
+            burgerOpen.style.display = 'flex';
+            burgerClose.style.display = 'none';
+            menu.classList.remove('header_menuActiveOpen');
+        },
+        logInWithFacebook() {
+            window.FB.login((response) => {
+                if (response) {
+                    console.log('res', response);
+                    localStorage.setItem(
+                        'fbLogin',
+                        typeof response === 'object'
+                            ? JSON.stringify(response)
+                            : response
+                    );
+                }
+            }, this.params);
+        },
+        loginWithGoogle() {
+            this.$gAuth
+                .signIn()
+                .then((GoogleUser) => {
+                    // on success do something
+                    console.log('GoogleUser', GoogleUser);
+                    localStorage.setItem(
+                        'googleLogin',
+                        typeof GoogleUser === 'object'
+                            ? JSON.stringify(GoogleUser)
+                            : GoogleUser
+                    );
+                })
+                .catch((error) => {
+                    console.log('error', error);
+                });
+        },
+        // loginWithAppleID () {
+        //      this.$auth.loginWithRedirect()
+        // },
+        // logoutWithAppleID () {
+        //     this.$auth.logout({
+        //         returnTo: window.location.origin
+        //     })
+        // }
+    },
 };
 </script>
 <style lang="scss">
@@ -117,7 +190,7 @@ export default {
         justify-content: space-between;
         // padding-right: 36px;
         &Action {
-            width: 300px;
+            // width: 300px;
             align-items: center;
             &_btn {
                 margin-right: 40px;
@@ -167,9 +240,9 @@ export default {
             }
             &Language {
                 cursor: pointer;
-               &:hover {
+                &:hover {
                     font-weight: bold;
-                } 
+                }
             }
         }
     }
