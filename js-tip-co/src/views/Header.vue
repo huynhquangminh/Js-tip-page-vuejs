@@ -15,6 +15,21 @@
                     <v-btn class="header_contentAction_btn">
                         <span>Submit your tip</span>
                     </v-btn>
+                    <div class="header_contentAction_mess">
+                    <a href="/chat">
+                    <v-badge
+                        color="#033"
+                        content="6"
+                        overlap
+                        >
+                        <img
+                            src="../assets/icon-inbox.png"
+                            width="40"
+                            height="40"
+                        />
+                    </v-badge>
+                    </a>
+                    </div>
                     <v-menu offset-y :left="true" nudge-right="5" nudge-top="-10">
                         <template v-slot:activator="{ on, attrs }">
                             <span
@@ -192,8 +207,13 @@ export default {
         &Action {
             // width: 300px;
             align-items: center;
+            display: flex;
             &_btn {
-                margin-right: 40px;
+                margin-right: 10px;
+            }
+            &_mess {
+                margin-right: 10px;
+                padding-top: 5px;
             }
             .v-btn__content {
                 text-transform: none;

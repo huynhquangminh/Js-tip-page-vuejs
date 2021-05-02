@@ -11,6 +11,7 @@ import React from '../views/React.vue'
 import Angular from '../views/Angular.vue'
 import VueJs from '../views/VueJs.vue'
 import More from '../views/More.vue'
+import Chat from '../views/Chat.vue'
 import NewTip from '../views/NewTip.vue'
 Vue.use(VueRouter)
 const routes = [
@@ -78,6 +79,11 @@ const routes = [
         path: '/more',
         name: 'more',
         component: More,
+    },
+    {
+        path: '/chat',
+        name: 'chat',
+        component: Chat,
     },
 ]
 
